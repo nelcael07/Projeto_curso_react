@@ -12,7 +12,9 @@ function SearchBox(props) {
     
     const[texto, setTexto] = useState('');
     useEffect(()=>{
-        props. onChangetext(texto);
+        if (props.onChangetext) {
+            props.onChangetext(texto);
+        }
     },[texto])
     return(
         <>
