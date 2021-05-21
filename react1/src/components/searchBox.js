@@ -11,11 +11,18 @@ const InputText = styled.input`
 function SearchBox(props) {
     
     const[texto, setTexto] = useState('');
-    useEffect(()=>{
-        if (props.onChangetext) {
-            props.onChangetext(texto);
+    
+    function handleKeyup(e) {
+        
+        if (e.keyCode == 13) {
+            
+            if (props.onEnter) {
+                props.onEnter(texto);
+            }
+            setTexto('');
         }
-    },[texto])
+    }
+
     return(
         <>
             <InputText 
@@ -23,6 +30,7 @@ function SearchBox(props) {
                 value={texto}
                 // onChange permite que o setTexto atualize a variavel texto, assim permitindo a inserção de valores
                 onChange={(e)=>setTexto(e.target.value)}
+                onKeyUp={handleKeyup}
                 placeholder={props.frasePadrao ?? "frase padrão de teste"}
             />
         </>
