@@ -4,48 +4,18 @@ import './App.css';
 import styled from 'styled-components';
 import SearchBox from './components/searchBox'
 function App() {
+  const[nome,setNome] = useState(localStorage.getItem('nome'))
+  const[teste,setTeste] = useState(localStorage.getItem('teste'))
 
-  const [textoAtual,setTextoAtual] = useState('');
-
-  const[list,setList] = useState([]);
-  
   useEffect(()=>{
-    setList([
-      {title:'comprar o bolo', done:false},
-      {title:'Aniversario da magali', done:true},
-      {title:'Aniversario do José geraldo', done:true}
-    ])
-  },[])
+    localStorage.setItem('nome', nome)
+  },[nome])
 
-    function addAction(newItem) {
-      let newList = [...list,{title:newItem, done:false}];
-      setList(newList)
-    }
-    function handleToggleDone(index) {
-      let newList = [...list];
-      newList[index].done = !newList[index].done;
-      setList(newList)
-    }
   return (
     <>
-      <h1>lista de tarefas</h1>
-       <SearchBox 
-          frasePadrao="Adicione um item.." 
-          onEnter={addAction}
-       ></SearchBox>
-       <hr></hr>
-       <ul>
-        {list.map((item, index)=>(
-          <li key={index}>
-            <div>{item.title} - {item.done.toString()}</div>
-            <button onClick={()=>handleToggleDone(index)}>
-              {!item.done && 'Fazer'}
-              {item.done && 'Desfazer'}
-            </button>
-          </li>
-        ))}
-       </ul>
-      </>  
+      nome: {nome} - funciona com duas variaveis? {teste}
+      <input placeholder='digite aqui...' type="text" value={nome} onChange={e=>setNome(e.target.value)}></input>
+    </>  
   );
 }
 export default App;
