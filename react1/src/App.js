@@ -16,6 +16,7 @@ function App() {
       <butto onClick={handleBottonClick}>Abrir Modal</butto>
       <Modal visible={ModalVisible} setVisible={setModalVisible}>
           <h1>testando 1,2,3</h1>
+          <h1>teste sendo realizado</h1>
       </Modal>    
     </>  
   );
