@@ -2,24 +2,25 @@ import React, {useState, useEffect} from 'react'
 import logo from './logo.svg';
 import './App.css';
 import styled from 'styled-components';
-import Modal from './components/Modal'
+import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
+
 function App() {
-
-  const [ModalVisible, setModalVisible] = useState(false);
-
-  function handleBottonClick() {
-    setModalVisible(true);
-  }
   return (
-    <>
-      {/* botão que apresenta o modal na tela */}
-      <butto onClick={handleBottonClick}>Abrir Modal</butto>
-      <Modal visible={ModalVisible} setVisible={setModalVisible}>
-          <h1>testando 1,2,3</h1>
-          <h1>teste sendo realizado</h1>
-          <h1>teste nelcael</h1>
-      </Modal>    
-    </>  
-  );
-}
+      <BrowserRouter>
+        <header>
+          <h1>Meu site legal</h1>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to='/sobre'>Sobre</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </BrowserRouter>  
+    );
+  }
 export default App;
