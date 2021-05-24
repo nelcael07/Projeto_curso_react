@@ -2,12 +2,13 @@ import React, {useState, useEffect} from 'react'
 import logo from './logo.svg';
 import './App.css';
 import styled from 'styled-components';
-import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Switch, Route, Link, Redirect} from 'react-router-dom'
 import Home from './pages/Home';
 import Sobre from './pages/Sobre';
 import Categoria from './pages/Categoria';
 
 function App() {
+
   return (
       <BrowserRouter>
         <header>
@@ -19,6 +20,9 @@ function App() {
               </li>
               <li>
                 <Link to='/sobre'>Sobre</Link>
+              </li>
+              <li>
+                <Link to='/quem-somos'>Quem somos</Link>
               </li>
               <li>
                 <Link to='/categoria?tipo=esporte'>Esportes</Link>
@@ -42,6 +46,11 @@ function App() {
           <Route path='/sobre'>
             <Sobre></Sobre>
           </Route>
+
+          <Route exact path='/quem-somos'>
+            <Redirect to="/sobre"></Redirect>
+          </Route>
+
           <Route path='/categoria'>
             <Categoria></Categoria>
           </Route>
