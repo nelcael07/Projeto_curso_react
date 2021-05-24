@@ -2,19 +2,21 @@ import React, {useState, useEffect} from 'react'
 import logo from './logo.svg';
 import './App.css';
 import styled from 'styled-components';
-import SearchBox from './components/searchBox'
+import Modal from './components/Modal'
 function App() {
-  const[nome,setNome] = useState(localStorage.getItem('nome'))
-  const[teste,setTeste] = useState(localStorage.getItem('teste'))
 
-  useEffect(()=>{
-    localStorage.setItem('nome', nome)
-  },[nome])
+  const [ModalVisible, setModalVisible] = useState(false);
 
+  function handleBottonClick() {
+    setModalVisible(true);
+  }
   return (
     <>
-      nome: {nome} - funciona com duas variaveis? {teste}
-      <input placeholder='digite aqui...' type="text" value={nome} onChange={e=>setNome(e.target.value)}></input>
+      {/* botão que apresenta o modal na tela */}
+      <butto onClick={handleBottonClick}>Abrir Modal</butto>
+      <Modal visible={ModalVisible} setVisible={setModalVisible}>
+          <h1>testando 1,2,3</h1>
+      </Modal>    
     </>  
   );
 }
