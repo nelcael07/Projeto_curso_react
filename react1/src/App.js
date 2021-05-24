@@ -45,6 +45,10 @@ function App() {
           <Route path='/categoria'>
             <Categoria></Categoria>
           </Route>
+          {/* rota final */}
+          <Route path='*'>
+            <h4>Pagina não encontrada!</h4>
+          </Route>
         </Switch>
         <hr></hr>
         <footer>Todos os direitor reservados - Nelcael Alves Ferreira</footer>
