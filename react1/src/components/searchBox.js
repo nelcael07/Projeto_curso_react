@@ -13,10 +13,8 @@ function SearchBox(props) {
     const[texto, setTexto] = useState('');
     
     function handleKeyup(e) {
-        
         if (e.keyCode == 13) {
             if (props.onEnter) {
-                
                 props.onEnter(texto);
             }
             setTexto('');

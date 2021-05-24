@@ -18,9 +18,12 @@ function App() {
   },[])
 
     function addAction(newItem) {
-      
       let newList = [...list,{title:newItem, done:false}];
-      
+      setList(newList)
+    }
+    function handleToggleDone(index) {
+      let newList = [...list];
+      newList[index].done = !newList[index].done;
       setList(newList)
     }
   return (
@@ -31,12 +34,14 @@ function App() {
           onEnter={addAction}
        ></SearchBox>
        <hr></hr>
-       {/* exibição de listas */}
-       {/* aqui é feito uma condição para ver se o item.done é falso ou true */}
-        <ul>
+       <ul>
         {list.map((item, index)=>(
           <li key={index}>
             <div>{item.title} - {item.done.toString()}</div>
+            <button onClick={()=>handleToggleDone(index)}>
+              {!item.done && 'Fazer'}
+              {item.done && 'Desfazer'}
+            </button>
           </li>
         ))}
        </ul>
