@@ -15,8 +15,8 @@ function SearchBox(props) {
     function handleKeyup(e) {
         
         if (e.keyCode == 13) {
-            
             if (props.onEnter) {
+                
                 props.onEnter(texto);
             }
             setTexto('');

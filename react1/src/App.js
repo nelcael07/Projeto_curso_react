@@ -18,41 +18,28 @@ function App() {
   },[])
 
     function addAction(newItem) {
-      let newList = list;
-      newList.push({
-        title:newItem,
-        done:false
-      })
+      
+      let newList = [...list,{title:newItem, done:false}];
+      
       setList(newList)
     }
   return (
     <>
       <h1>lista de tarefas</h1>
        <SearchBox 
-        frasePadrao="Adicione um item.." 
-        onEnter={addAction}
+          frasePadrao="Adicione um item.." 
+          onEnter={addAction}
        ></SearchBox>
        <hr></hr>
-       
        {/* exibição de listas */}
        {/* aqui é feito uma condição para ver se o item.done é falso ou true */}
-
-       <ul>
+        <ul>
         {list.map((item, index)=>(
           <li key={index}>
-            {item.done &&
-              <div>{item.title} - {item.done.toString()}</div>
-            }
-            { !item.done &&
-              <h3>Aqui era falso</h3>
-            }
+            <div>{item.title} - {item.done.toString()}</div>
           </li>
         ))}
        </ul>
-
-       
-
-
       </>  
   );
 }
