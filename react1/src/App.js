@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import styled from 'styled-components';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
+import Home from './pages/Home';
+import Sobre from './pages/Sobre';
 
 function App() {
   return (
@@ -20,6 +22,20 @@ function App() {
             </ul>
           </nav>
         </header>
+        <hr></hr>
+
+        <Switch>
+
+          <Route exact path='/'>
+            <Home></Home>
+          </Route>
+          <Route path='/sobre'>
+            <Sobre></Sobre>
+          </Route>
+
+        </Switch>
+        <hr></hr>
+        <footer>Todos os direitor reservados - Nelcael Alves Ferreira</footer>
       </BrowserRouter>  
     );
   }
