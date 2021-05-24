@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
 import Home from './pages/Home';
 import Sobre from './pages/Sobre';
+import Categoria from './pages/Categoria';
 
 function App() {
   return (
@@ -19,6 +20,15 @@ function App() {
               <li>
                 <Link to='/sobre'>Sobre</Link>
               </li>
+              <li>
+                <Link to='/categoria/esportes'>Esportes</Link>
+              </li>
+              <li>
+                <Link to='/categoria/noticias'>Noticias</Link>
+              </li>
+              <li>
+                <Link to='/categoria/viagem'>viagem</Link>
+              </li>
             </ul>
           </nav>
         </header>
@@ -31,6 +41,13 @@ function App() {
           </Route>
           <Route path='/sobre'>
             <Sobre></Sobre>
+          </Route>
+          <Route path='/categoria/:cat'>
+            <Categoria></Categoria>
+          </Route>
+
+          <Route path='/produto/:id'>
+            
           </Route>
 
         </Switch>
