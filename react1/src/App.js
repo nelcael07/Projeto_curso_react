@@ -21,19 +21,19 @@ function App() {
                 <Link to='/sobre'>Sobre</Link>
               </li>
               <li>
-                <Link to='/categoria/esportes'>Esportes</Link>
+                <Link to='/categoria?tipo=esporte'>Esportes</Link>
               </li>
               <li>
-                <Link to='/categoria/noticias'>Noticias</Link>
+                <Link to='/categoria?tipo=noticias'>Noticias</Link>
               </li>
               <li>
-                <Link to='/categoria/viagem'>viagem</Link>
+                <Link to='/categoria?tipo=viagem'>viagem</Link>
               </li>
             </ul>
           </nav>
         </header>
         <hr></hr>
-
+        
         <Switch>
 
           <Route exact path='/'>
@@ -42,14 +42,9 @@ function App() {
           <Route path='/sobre'>
             <Sobre></Sobre>
           </Route>
-          <Route path='/categoria/:cat'>
+          <Route path='/categoria'>
             <Categoria></Categoria>
           </Route>
-
-          <Route path='/produto/:id'>
-            
-          </Route>
-
         </Switch>
         <hr></hr>
         <footer>Todos os direitor reservados - Nelcael Alves Ferreira</footer>

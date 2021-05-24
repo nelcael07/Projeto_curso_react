@@ -1,11 +1,18 @@
 import React from 'react';
-import {useParams} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
+
+function useQuery() {
+    return new URLSearchParams(useLocation().search)
+}
+
 function Categoria() {
-    let{cat} = useParams();
+    let query = useQuery();
+    let cat = query.get('tipo')
+    let subcat = query.get('subtipo')
     return(
         <div>
             <h4>Página Categoria</h4>
-            <h2>exibindo coisas da categoria: {cat}</h2>
+            <h2>exibindo coisas da categoria: {cat} - {subcat}</h2>
         </div>
     )
 }
