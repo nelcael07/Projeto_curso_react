@@ -46,11 +46,9 @@ function App() {
           <Route path='/sobre'>
             <Sobre></Sobre>
           </Route>
-
           <Route exact path='/quem-somos'>
             <Redirect to="/sobre"></Redirect>
           </Route>
-
           <Route path='/categoria'>
             <Categoria></Categoria>
           </Route>
