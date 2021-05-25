@@ -7,9 +7,7 @@ import Home from './pages/Home';
 import Sobre from './pages/Sobre';
 import Login from './pages/Login';
 
-
 const isLogged = false
-
 function PrivateRoute ({children, ...rest}) {
   return(
     <Route {...rest}>
@@ -17,9 +15,7 @@ function PrivateRoute ({children, ...rest}) {
     </Route>
   );
 };
-
 function App() {
-  
   return (
       <BrowserRouter>
         <header>
