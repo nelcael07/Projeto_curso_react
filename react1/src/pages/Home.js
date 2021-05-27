@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import{useHistory,Redirect} from 'react-router-dom'
-import {connect} from 'react-redux';
+import {useSelector,useDispatch} from 'react-redux';
 
-function Home(props) {
+function Home() {
+
+    const name =  useSelector(state => state.usuario.name);
+    const contador = useSelector(state => state.usuario.contador);
+    const dispatch = useDispatch();
+    
     let history = useHistory();
 
     const handleCristiano= ()=>{
-        props.setName('Cristiano')
+       dispatch({
+           type: 'SET_NOME',
+           payload: {nome:'Nelcael'}
+       })
     }
     const handleIncrement = ()=>{
-        props.increment();
+        dispatch({
+            type: 'AUTO_INCREMENT',
+        })
     }
     function handleButton() {
         setTimeout(()=>{
@@ -20,8 +30,8 @@ function Home(props) {
         <div>
             <h4>Página HOME</h4>
 
-            NOME: {props.name}<br></br>
-            CONTADOR: {props.contador}
+            NOME: {name}<br></br>
+            CONTADOR: {contador}
             <br></br>
             <br></br>
             <button onClick={handleCristiano}>Setar Nome para Cristiano</button>
@@ -36,24 +46,6 @@ function Home(props) {
     )
 }
 
-const mapStateToProps = (state) =>{
-    return{
-        name: state.usuario.name,
-        contador:state.usuario.contador
-    }
-}
+export default Home;
 
-const mapDispatchToProps = (dispatch) =>{
-    return{
-            setName:(newName)=> dispatch({
-                type:'SET_NAME',
-                payload:{name:newName}
-            }),
-            increment:()=> dispatch({
-                type:'AUTO_INCREMENT'
-            })
-    };
-};
-
-export default connect(mapStateToProps,mapDispatchToProps)(Home);
 
