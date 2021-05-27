@@ -10,10 +10,10 @@ function Home() {
     
     let history = useHistory();
 
-    const handleCristiano= ()=>{
+    const handleCristiano= ()=>{    
        dispatch({
            type: 'SET_NOME',
-           payload: {nome:'Nelcael'}
+           payload: {nome:'Cristino'}
        })
     }
     const handleIncrement = ()=>{
